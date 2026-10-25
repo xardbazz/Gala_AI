@@ -29,7 +29,7 @@ def recognize_speech():
 
     # 44100 Hz to match most commoon microphones, changable per preference
     rec = vosk.KaldiRecognizer(model, 44100)
-    print("\n[Listening...] say 'Hey/Yo/Hello Or just gala' or start typing to the Chat")
+    print("\n[Listening...] say 'Hey/Yo/Hello Or just potato' or start typing to the Chat")
 
     command_rec = vosk.KaldiRecognizer(model, 44100)
     capturing_command = False
@@ -59,8 +59,8 @@ def recognize_speech():
                 text = result.get("text", "").strip().lower()
                 
                 # Wake the AI here/ change AI commands here to if you want a different AI 
-                if "hey gala" in text or "yo gala" in text or "hello gala" in text or "gala" in text:
-                    print("\n [Wake word heard! Listening for command comrade]")
+                if "hey potato" in text or "yo potato" in text or "hello potato" in text or "potato" in text:
+                    print("\n [Wake word heard! Listening for command Chef]")
                     capturing_command = True
                     command_rec = vosk.KaldiRecognizer(model, 44100)
 
@@ -75,7 +75,7 @@ def recognize_speech():
 
 def get_ollama_response(prompt):
     is_ai_speaking.set()
-    print(f"\nComrade: '{prompt}'")
+    print(f"\nChef: '{prompt}'")
     print("Thinking...")
     payload = {
         "model": OLLAMA_MODEL,
@@ -109,7 +109,7 @@ def speak(text):
     time.sleep(0.5)
 
     is_ai_speaking.clear()
-    print("\n[System Ready] Say 'Hey/Yo/Hello Smoke' or type here:")
+    print("\n[System Ready] Say 'Hey/Yo/Hello potato' or type here:")
 
 
 if __name__ == "__main__":
