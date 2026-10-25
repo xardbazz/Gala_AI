@@ -2,7 +2,7 @@
 
 Here is the exact hardware and software environment this project was built and tested on:
 
-*   **Hardware** : Hardkernel ODROID-C2 (Amlogic S905, Quad-Core ARM Cortex-A53, 2GB RAM)
+   **Hardware** : Hardkernel ODROID-C2 (Amlogic S905, Quad-Core ARM Cortex-A53, 2GB RAM)
 *   **Storage** : 8GB eMMC (OS) + 60GB SD Card (AI Models & Storage)
 *   **Total Storage Used** : ~4.3 GB (OS, AI models, Python environment, and voice models)
 *   **OS**: Armbian (Minimal / CLI)
@@ -17,4 +17,3 @@ Here is the exact hardware and software environment this project was built and t
 ```text
 vosk
 requests
-```
