@@ -1,5 +1,5 @@
 # FULL Installation & Setup Guide
-*** Note: SKIP TO STEP 5&6 if you have the dependence or your own model ***
+___ Note: SKIP TO STEP 5&6 if you have the dependence or your own model ___
 
 1. *** System Dependencies ***
 You need the ALSA audio tools and SoX for audio processing:
