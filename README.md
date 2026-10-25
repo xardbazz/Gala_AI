@@ -11,7 +11,7 @@ sudo apt install -y python3-pip python3-venv alsa-utils sox
 2. **Python Environment**
 Clone the repo and set up a virtual environment:
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+git clone https://github.com/xardbazz/Potato_AI.git
 cd YOUR_REPO_NAME
 python3 -m venv voice-env
 source voice-env/bin/activate
