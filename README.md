@@ -22,8 +22,8 @@ pip install -r requirements.txt
 You need the Vosk speech model and the Piper voice model.
 **Create a folder for models**
 ```bash
-mkdir -p /mnt/ai-storage/voice-models
-cd /mnt/ai-storage/voice-models
+mkdir -p /your-storage-location/your-ai-folder-location/voice-models
+cd /your-storage-location/your-ai-folder-location/voice-models
 ```
 
 **Download Vosk (English)**
@@ -42,7 +42,7 @@ wget https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/lessac/me
 Ollama runs the AI brain. Since it's an ARM64 board, download the standalone binary:
 
 ```bash
-cd /mnt/ai-storage
+cd /your-storage-location/your-ai-folder-location
 curl -fsSL https://ollama.com/download/ollama-linux-arm64.tar.zst -o ollama.tar.zst
 tar --zstd -xf ollama.tar.zst
 rm ollama.tar.zst
@@ -52,21 +52,21 @@ rm ollama.tar.zst
 Start the Ollama server in the background, pointing to your SD card:
 
 ```bash
-export OLLAMA_MODELS=/mnt/ai-storage/models
+export OLLAMA_MODELS=/your-storage-location/your-ai-folder-location/models
 export OLLAMA_HOST=0.0.0.0:11434
-/mnt/ai-storage/bin/ollama serve > /mnt/ai-storage/ollama.log 2>&1 &
+/your-storage-location/your-ai-folder-location/bin/ollama serve > /your-storage-location/your-ai-folder-location/ollama.log 2>&1 &
 ```
 
 **Pull the Qwen model**
 ```bash
-/mnt/ai-storage/bin/ollama pull qwen2.5:1.5b
+/your-storage-location/your-ai-folder-location/bin/ollama pull qwen2.5:1.5b
 ```
 
 6. **Start the Assistant**
 Make sure your audio card number matches the script (run aplay -l to check if it's plughw:0,0 or plughw:1,0). Then run:
 
 ```bash
-source /mnt/ai-storage/voice-env/bin/activate
+source /your-storage-location/your-ai-folder-location/voice-env/bin/activate
 python3 voice_assistant.py
 ```
 
