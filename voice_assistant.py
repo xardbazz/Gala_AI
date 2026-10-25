@@ -9,13 +9,13 @@ import select
 import vosk
 from vosk import Model, KaldiRecognizer, SetLogLevel
 
-# --- Configuration ---
+# Configuration
 VOSK_MODEL_PATH = "/mnt/ai-storage/voice-models/vosk-model-small-en-us-0.15"
 PIPER_MODEL_PATH = "/mnt/ai-storage/voice-models/en_US-lessac-medium.onnx"
 OLLAMA_MODEL = "qwen2.5:1.5b"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 
-# --- Initialize Models ---
+# Initialize Models
 SetLogLevel(-1)
 print("Loading Vosk model...")
 model = Model(VOSK_MODEL_PATH)
