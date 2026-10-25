@@ -2,9 +2,9 @@
 
 Here is the exact hardware and software environment this project was built and tested on:
 
-*   **Hardware**: Hardkernel ODROID-C2 (Amlogic S905, Quad-Core ARM Cortex-A53, 2GB RAM)
-*   **Storage**: 8GB eMMC (OS) + 60GB SD Card (AI Models & Storage)
-*   **Total Storage Used**: ~4.3 GB (OS, AI models, Python environment, and voice models)
+*   **Hardware** : Hardkernel ODROID-C2 (Amlogic S905, Quad-Core ARM Cortex-A53, 2GB RAM)
+*   **Storage** : 8GB eMMC (OS) + 60GB SD Card (AI Models & Storage)
+*   **Total Storage Used** : ~4.3 GB (OS, AI models, Python environment, and voice models)
 *   **OS**: Armbian (Minimal / CLI)
 *   **Linux Kernel**: 6.12.58 (Amlogic Meson 64-bit)
 *   **Python Version**: Python 3.13
