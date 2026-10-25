@@ -27,7 +27,7 @@ voice_input = ""
 def recognize_speech():
     global voice_input
 
-    # 44100 Hz to match most commoon microphones, changable per prefrance
+    # 44100 Hz to match most commoon microphones, changable per preference
     rec = vosk.KaldiRecognizer(model, 44100)
     print("\n[Listening...] say 'Hey/Yo/Hello Or just gala' or start typing to the Chat")
 
@@ -56,7 +56,7 @@ def recognize_speech():
                 result = json.loads(rec.Result())
                 text = result.get("text", "").strip().lower()
                 
-                # Wake the AI here
+                # Wake the AI here/ change AI commands here to if you want a different AI 
                 if "hey gala" in text or "yo gala" in text or "hello gala" in text or "gala" in text:
                     print("\n [Wake word heard! Listening for command comrade]")
                     capturing_command = True
