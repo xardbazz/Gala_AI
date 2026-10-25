@@ -27,9 +27,9 @@ voice_input = ""
 def recognize_speech():
     global voice_input
 
-    # 44100 Hz to match the microphone natively
+    # 44100 Hz to match most commoon microphones, changable per prefrance
     rec = vosk.KaldiRecognizer(model, 44100)
-    print("\n[Listening...] say 'Hey/Yo/Hello smoke' or start typing to the Chat")
+    print("\n[Listening...] say 'Hey/Yo/Hello Or just gala' or start typing to the Chat")
 
     command_rec = vosk.KaldiRecognizer(model, 44100)
     capturing_command = False
@@ -39,7 +39,7 @@ def recognize_speech():
             time.sleep(0.1)
             continue
 
-        # Record 2 seconds of raw 44100Hz audio directly from the splitter
+        # Record 2 seconds of raw 44100Hz audio directly from the splitter/ raw can be edited based on prefrance, WAV/MP3
         subprocess.run(
             ["arecord", "-q", "-D", "plughw:0,0", "-d", "2", "-f", "S16_LE", "-r", "44100", "-c", "1", "-t", "raw", "/dev/shm/chunk.raw"],
             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
@@ -56,11 +56,11 @@ def recognize_speech():
                 result = json.loads(rec.Result())
                 text = result.get("text", "").strip().lower()
                 
-                # Wake up logic
-                if "hey smoke" in text or "yo smoke" in text or "hello smoke" in text:
+                # Wake the AI here
+                if "hey gala" in text or "yo gala" in text or "hello gala" in text or "gala" in text:
                     print("\n [Wake word heard! Listening for command comrade]")
                     capturing_command = True
-                    command_rec = vosk.KaldiRecognizer(model, 44100) # reset
+                    command_rec = vosk.KaldiRecognizer(model, 44100)
 
         else:
             if command_rec.AcceptWaveform(data):
@@ -98,20 +98,16 @@ def speak(text):
     process = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     process.communicate(input=text.encode('utf-8'))
 
-    # Give the USB splitter time to switch from Record to Play
     time.sleep(0.5)
 
-    # Play using subprocess
     subprocess.run(["aplay", "-q", "-D", "plughw:0,0", out_file])
 
-    # Give the USB splitter time to switch back to Record
     time.sleep(0.5)
 
     is_ai_speaking.clear()
     print("\n[System Ready] Say 'Hey/Yo/Hello Smoke' or type here:")
 
 
-# --- Main Loop ---
 if __name__ == "__main__":
     listener_thread = threading.Thread(target=recognize_speech, daemon=True)
     listener_thread.start()
