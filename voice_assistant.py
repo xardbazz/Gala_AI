@@ -40,6 +40,8 @@ def recognize_speech():
             continue
 
         # Record 2 seconds of raw 44100Hz audio directly from the splitter/ raw can be edited based on prefrance, WAV/MP3
+        # MAKE SURE: plughw:0,0 and matches your devices ID, for example "plughw:0,0" is device 0 "plughw:1,0" is device 1
+        # NOTE: the microphon and speaker sometimes can be on the same device number! if for example when using a usb spliter or audio spliter
         subprocess.run(
             ["arecord", "-q", "-D", "plughw:0,0", "-d", "2", "-f", "S16_LE", "-r", "44100", "-c", "1", "-t", "raw", "/dev/shm/chunk.raw"],
             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
@@ -100,6 +102,8 @@ def speak(text):
 
     time.sleep(0.5)
 
+    # MAKE SURE: plughw:0,0 and matches your devices ID, for example "plughw:0,0" is device 0 "plughw:1,0" is device 1
+    # NOTE: the microphon and speaker sometimes can be on the same device number! if for example when using a usb spliter or audio spliter
     subprocess.run(["aplay", "-q", "-D", "plughw:0,0", out_file])
 
     time.sleep(0.5)
