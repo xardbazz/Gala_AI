@@ -1,14 +1,14 @@
 # FULL Installation & Setup Guide
 *** Note: SKIP TO STEP 5&6 if you have the dependence or your own model ***
 
-*** 1. System Dependencies ***
+1. *** System Dependencies ***
 You need the ALSA audio tools and SoX for audio processing:
 ```bash
 sudo apt update
 sudo apt install -y python3-pip python3-venv alsa-utils sox
 ```
 
-*** 2.  Python Environment ***
+2. *** Python Environment ***
 Clone the repo and set up a virtual environment:
 ```bash
 git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
@@ -18,7 +18,7 @@ source voice-env/bin/activate
 pip install -r requirements.txt
 ```
 
-*** 3. Download the Models ***
+3. *** Download the Models ***
 You need the Vosk speech model and the Piper voice model.
 *** Create a folder for models ***
 ```bash
@@ -48,7 +48,7 @@ tar --zstd -xf ollama.tar.zst
 rm ollama.tar.zst
 ```
 
-*** 5. Run the AI Server ***
+5. *** Run the AI Server ***
 Start the Ollama server in the background, pointing to your SD card:
 
 ```bash
@@ -62,7 +62,7 @@ export OLLAMA_HOST=0.0.0.0:11434
 /mnt/ai-storage/bin/ollama pull qwen2.5:1.5b
 ```
 
-*** 6. Start the Assistant ***
+6. *** Start the Assistant ***
 Make sure your audio card number matches the script (run aplay -l to check if it's plughw:0,0 or plughw:1,0). Then run:
 
 ```bash
