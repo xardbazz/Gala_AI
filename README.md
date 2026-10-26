@@ -1,6 +1,9 @@
 # FULL Installation & Setup Guide
 ***Note: SKIP TO STEP 5&6 if you have the dependence or your own model***
 
+Silly video of it:
+https://www.youtube.com/watch?v=TiyQUOo5qwo&t=23s
+
 1. **System Dependencies**
 You need the ALSA audio tools and SoX for audio processing:
 ```bash
